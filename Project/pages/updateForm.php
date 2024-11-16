@@ -14,22 +14,32 @@
             <h2>Make your customized order</h2>
         </div>
         <class class="orderForm">
-            <form method="post" id="orderForm">
-                <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
+            <form method="post" id="orderForm" action="../backEnd/update.php">
+<?php 
+include "../database/database.php";
+$conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_username, $db_password);
+$conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$id = $_GET['order_id'];
+$statement = $conn->prepare("SELECT * FROM orders WHERE order_id = $id");
+$statement -> execute();
+$results = $statement->fetchAll();
+foreach($results as $result)
+?>
+                <input type="hidden" name="order_id" value="<?php echo $result['order_id']; ?>">
                 <div class="information">
                     <h3>Please fill up the form</h3>
                 </div>
                 <div class="info">
                     <div class="inputfield">
-                        <input type="text" name="name" id="name" required>
+                        <input type="text" name="name" id="name" value="<?php echo $result['cx_name']; ?>" required>
                         <label for="name" class="userInput">Name :</label>
                     </div>
                     <div class="inputfield">
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email" value="<?php echo $result['cx_email']; ?>" required>
                         <label for="name" class="userInput">Email :</label>
                     </div>
                     <div class="inputfield">
-                        <input type="tel" name="contactNumber" id="contactNumber" required>
+                        <input type="tel" name="contactNumber" id="contactNumber" value="<?php echo $result['contact_number']; ?>" required>
                         <label for="name" class="userInput">Contact number :</label>
                     </div>
                 </div>
@@ -38,7 +48,7 @@
                 </div>
                 <div class="lists">
                     <div class="MenuList">
-                        <input type="radio" name="menuName" id="QuarterPounder" value="QuarterPounder">
+                        <input type="radio" name="menuName" id="QuarterPounder" value="QuarterPounder" required>
                         <div class="radioTile">
                             <img src="../assets/1.jpg" alt="">
                             <label for="QuarterPounder" class="MenuListIcons">Quarter-Pounder</label>
@@ -100,9 +110,8 @@
                     </div>
                 </div>
                 <div class="btns">
-                    <button class="checkData"><a href="../pages/viewOrder.php">Check Order</a></button>
-                    <button class="submitBtn" name="action" value="addOrder">Submit</button>
-                    <button class="clearBtn" onclick="clearFrom()" value="Reset form">Clear selection</button>
+                    <a href="../pages/viewOrder.php">Back</a>
+                    <button type="submit" class="submitBtn" name="action" value="addOrder">Update</button>
                 </div>
             </form>
             
@@ -110,11 +119,5 @@
             
         </div>
     </section>
-
-    <script>
-        function clearFrom(){
-            document.getElementById('orderForm').reset();
-        }
-    </script>
 </body>
 </html>

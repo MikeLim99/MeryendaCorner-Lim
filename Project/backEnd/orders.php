@@ -44,18 +44,15 @@ function displayOrder(){
 
         $totalPrice = calculatePrice($menuPrices, $sides_prices, $menuName, $sideName);
 
-
         echo "<section>";
         echo "<div class='orderSummary'>";
         echo "<h2> 📝 Order Summary </h2>";
-
         echo "<div class='orderInfo'>";
         echo "<table>";
         echo "<tr><td>Name</td><td>" . htmlspecialchars($name) . "</td></tr>";
         echo "<tr><td>Main menu</td><td>" . htmlspecialchars($menuName) . "(₱". number_format($menuPrices[$menuName],2) . ")</td></tr>";
         echo "<tr><td>Sides</td><td>" . implode(', ', $sideName) . "(₱". number_format(array_sum(array_intersect_key($sides_prices, array_flip($sideName))),2) . ")</td></>";
         echo "<tr><td>Total price</td><td>" . "₱". number_format($totalPrice, 2) . "</td></tr>";
-        echo "</table>";
         echo "</div>";
         echo "</section>";
 
@@ -97,10 +94,14 @@ function addToDatabase($menuName, $sideName, $totalPrice, $name, $email, $contac
         $statement -> bindParam(':totalPrice', $totalPrice);
 
         $statement -> execute();
+        $last_id = $conn->lastInsertId();
 
-        
-        
+        echo "<tr><td>Order number</td><td>" . $last_id . "</td></tr>";
+        echo "</table>";
+        echo '<a href="../pages/index.html"><button>Back</button></a>';
+        echo '<a href="../pages/viewOrder.php"><button>Check Order</button></a>';
         echo "<script>alert('Thank you! Your order has been sent to the database.');</script>";
+        
     }
     catch (PDOException $e) {
         echo "Error: " . $e->getMessage();

@@ -17,7 +17,6 @@
             <form action="" method="post">
                 <h2>Check my Order</h2>
                 <input type="text" name="orderId" id="orderId">
-                
                 <button type="submit">Submit</button>
             </form>
         </div>

@@ -2,28 +2,20 @@
 include "../database/database.php";
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-
-    
-    // if(isset($_GET['order_id'])){
-    //     $id = $_GET['order_id'];
-    //     $delete = mysqli_query($conn, "DELETE FROM orders WHERE order_id = '$id'");
-    //     header("location:../pages/viewOrder.php");
-    // }
-
-    if($conn->connect_error){
-        die("connection failed" . $conn->connect_error);
-    }
-
     $id = $_POST['orderId'];
-    $sql = "SELECT * FROM orders WHERE order_id = $id";
-    $result = $conn->query($sql);
 
-    if(!$result){
-        die ("Invalid query: " . $conn->connect_error);
-    }else {
-        while($row = $result->fetch_assoc()){
-            echo
+    try {
+    $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_username, $db_password);
+    $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT * FROM orders WHERE order_id = :order_id");
+
+    $stmt->bindparam(':order_id', $id);
+
+    $stmt->execute();
+
+    $result = $stmt->fetch();
+    if($result){
+        echo
             "<tr>
                 <th>Order ID</th>
                 <th>Customer</th>
@@ -38,22 +30,23 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
             echo 
         '
         <tr>
-        <td>' .$row['order_id'] .'</td>
-        <td>' .'<input type="text" id="updateField" value="'.$row['cx_name'].'" disabled>' .'</td>
-        <td>' .'<input type="text" id="updateField" value="'.$row['cx_email'].'" disabled>' .'</td>
-        <td>' .'<input type="text" id="updateField" value="'.$row['contact_number'].'" disabled>' .'</td>
-        <td>' .'<input type="text" id="updateField" value="'.$row['main_menu'].'" disabled>'.'</td>
-        <td>' .'<input type="text" id="updateField" value="'.$row['side_menu'].'" disabled>' .'</td>
-        <td>' .$row['total_price'].'</td>
+        <td>' .$result['order_id'] .'</td>
+        <td>' .'<input type="text" id="updateField" value="'.$result['cx_name'].'" disabled>' .'</td>
+        <td>' .'<input type="text" id="updateField" value="'.$result['cx_email'].'" disabled>' .'</td>
+        <td>' .'<input type="text" id="updateField" value="'.$result['contact_number'].'" disabled>' .'</td>
+        <td>' .'<input type="text" id="updateField" value="'.$result['main_menu'].'" disabled>'.'</td>
+        <td>' .'<input type="text" id="updateField" value="'.$result['side_menu'].'" disabled>' .'</td>
+        <td>' .$result['total_price'].'</td>
         <td>
-            <button><a href="../pages/updateForm.php?order_id='. $row['order_id'] .'"><i class="fa-regular fa-pen-to-square"></i></a></button>
-            <a href="viewOrder.php?order_id='. $row['order_id'] .'"><i class="fa-solid fa-trash" style="color: #ff4d70;"></i></a>
+            <button><a href="../pages/updateForm.php?order_id='. $result['order_id'] .'"><i class="fa-regular fa-pen-to-square"></i></a></button>
+            <a href="viewOrder.php?order_id='. $result['order_id'] .'"><i class="fa-solid fa-trash" style="color: #ff4d70;"></i></a>
         </td>
         </tr>';
-        
-        }
-    }   
-    
-    
+    }else {
+        echo "Order number does not exists, Please check the order number and try again.";
+    }
+    }catch(PDOException){
+        echo "ERROR : " . $e->getMesssage();
+    }
 }
 ?>
