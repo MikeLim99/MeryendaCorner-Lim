@@ -8,8 +8,8 @@
     <title>Admin panel</title>
 </head>
 <body>
-    <div id="navbar-container"></div>
-    <script src="../js/navbar.js"></script>
+<?php include "../pages/navbar.php"; ?>
+
     <div class="showOrders">
         <h2>Order Lists</h2>
         <div class="orderlists">
