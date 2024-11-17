@@ -10,8 +10,7 @@
     <title>View my Order</title>
 </head>
 <body>
-<div id="navbar-container"></div>
-<script src="../js/navbar.js"></script>
+<?php include "../pages/navbar.php"; ?>
     <section>
         <div class="inputform">
             <form action="" method="post">
