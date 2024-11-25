@@ -8,8 +8,7 @@
     <title>Order received!</title>
 </head>
 <body>
-    <div id="navbar-container"></div>
-    <script src="../js/navbar.js"></script>
+    <?php include "../pages/navbar.php"; ?>
 <?php
 include "../database/database.php";
 
@@ -98,8 +97,8 @@ function addToDatabase($menuName, $sideName, $totalPrice, $name, $email, $contac
 
         echo "<tr><td>Order number</td><td>" . $last_id . "</td></tr>";
         echo "</table>";
-        echo '<a href="../pages/index.html"><button>Back</button></a>';
-        echo '<a href="../pages/viewOrder.php"><button>Check Order</button></a>';
+        echo '<div class="btns"><button class="backBtn"><a href="../pages/index.html">Back</a></button>';
+        echo '<button><a href="../pages/viewOrder.php">Check Order</a></button></div>';
         echo "<script>alert('Thank you! Your order has been sent to the database.');</script>";
         
     }

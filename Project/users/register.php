@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
             $_SESSION['username'] = $username;
             echo "<script type='text/javascript'>
             alert('Registration successful!');
-            window.location.href = '../pages/index.html';
+            window.location.href = '../pages/index.php';
             </script>";
             exit();
         }

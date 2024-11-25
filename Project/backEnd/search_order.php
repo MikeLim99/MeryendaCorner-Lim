@@ -38,7 +38,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         <td>' .'<input type="text" id="updateField" value="'.$result['side_menu'].'" disabled>' .'</td>
         <td>' .$result['total_price'].'</td>
         <td>
-            <button><a href="../pages/updateForm.php?order_id='. $result['order_id'] .'"><i class="fa-regular fa-pen-to-square"></i></a></button>
+            <a href="../pages/updateForm.php?order_id='. $result['order_id'] .'"><i class="fa-regular fa-pen-to-square"></i></a>
             <a href="viewOrder.php?order_id='. $result['order_id'] .'"><i class="fa-solid fa-trash" style="color: #ff4d70;"></i></a>
         </td>
         </tr>';

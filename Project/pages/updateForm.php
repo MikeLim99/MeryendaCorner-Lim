@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>KFC - pambayan!</title>
+    <title>Meryenda Corner</title>
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
             <h2>Make your customized order</h2>
         </div>
         <class class="orderForm">
-            <form method="post" id="orderForm" action="../backEnd/update.php">
+            <form method="post" id="orderForm" action="../backEnd/update.php" class="indexform">
 <?php 
 include "../database/database.php";
 $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_username, $db_password);
@@ -110,7 +110,7 @@ foreach($results as $result)
                     </div>
                 </div>
                 <div class="btns">
-                    <a href="../pages/viewOrder.php">Back</a>
+                    <button class="backBtn"><a href="../pages/viewOrder.php">Back</a></button>
                     <button type="submit" class="submitBtn" name="action" value="addOrder">Update</button>
                 </div>
             </form>

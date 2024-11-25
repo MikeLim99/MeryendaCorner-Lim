@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meryenda Corner</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>KFC - pambayan!</title>
 </head>
 <body>
-    <div class="logo">
-        <p>KUYA TON FOODTRIP CORNER</p>
-    </div>
+    <div class="indexContent">
+    
     <?php include "../pages/navbar.php"; ?>
-    <section>
-        <div class="cover">
-
-        </div>
-        <div class="cover2">
-            <span>BEST buyer burger in town! Quarter-Pounder! Juicy, Cheesy and Meaty burger!</span>
-            <div class="scrollBtn">
-                <a href="#Menu-section"><i class="fa-solid fa-angles-down fa-bounce"></i></a>
-            </div>
-        </div>
+    <div id="showcase">
         <div class="main-section">
-            <img src="../assets/burger.jpg" alt="">
-            
+            <img src="../assets/burger.png" alt="" id="frame-1">
+            <img src="../assets/Frame2.png" alt="" id="frame-2">
         </div>
-        
-    </section>
+        <div class="socIcons">
+                <ul>
+                    <li><a href="#"><i class="fa-brands fa-facebook" style="color: #FFE31A;"></i></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram" style="color: #FFE31A;"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube" style="color: #FFE31A;"></i></a></li>
+                </ul>
+            </div>
+    </div>
 
     <section id="Menu-section">
         <div class="central-div">
@@ -55,7 +51,7 @@
             <div class="card">
                 <div class="productImg">
                     <div class="product">
-                        <img src="../assets/1.jpg" alt="">
+                        <img src="../assets/cheeseburger.jpg" alt="">
                     </div>
                     <div class="productTitle">
                         <span>Cheesy-Burger</span>
@@ -72,7 +68,7 @@
             <div class="card">
                 <div class="productImg">
                     <div class="product">
-                        <img src="../assets/1.jpg" alt="">
+                        <img src="../assets/cheeseburger_with_egg.jpeg" alt="">
                     </div>
                     <div class="productTitle">
                         <span>Overload</span>
@@ -89,7 +85,7 @@
             <div class="card">
                 <div class="productImg">
                     <div class="product">
-                        <img src="../assets/1.jpg" alt="">
+                        <img src="../assets/friednoodles.jpg" alt="">
                     </div>
                     <div class="productTitle">
                         <span>Fried Noodles</span>
@@ -111,22 +107,22 @@
             <h2>Make your customized order</h2>
         </div>
         <class class="orderForm">
-            <form action="../backEnd/orders.php" method="post" id="orderForm">
+            <form action="../backEnd/orders.php" method="post" id="orderForm" class="indexform">
                 <div class="information">
                     <h3>Please fill up the form</h3>
                 </div>
                 <div class="info">
                     <div class="inputfield">
                         <input type="text" name="name" id="name" required>
-                        <label for="name" class="userInput">Name :</label>
+                        <span>Name :</span>
                     </div>
                     <div class="inputfield">
                         <input type="email" name="email" id="email" required>
-                        <label for="name" class="userInput">Email :</label>
+                        <span>Email :</span>
                     </div>
                     <div class="inputfield">
                         <input type="tel" name="contactNumber" id="contactNumber" required>
-                        <label for="name" class="userInput">Contact number :</label>
+                        <span>Contact number :</span>
                     </div>
                 </div>
                 <div class="information">
@@ -144,7 +140,7 @@
                     <div class="MenuList">
                         <input type="radio" name="menuName" id="Overload" value="Overload">
                         <div class="radioTile">
-                            <img src="../assets/1.jpg" alt="">
+                            <img src="../assets/cheeseburger_with_egg.jpeg" alt="">
                             <label for="Quarter-Pounder" class="MenuListIcons">Overload</label>
                             <label for="price">₱36.00</label>
                         </div>
@@ -152,7 +148,7 @@
                     <div class="MenuList">
                         <input type="radio" name="menuName" id="Cheeseburger" value="Cheeseburger">
                         <div class="radioTile">
-                            <img src="../assets/1.jpg" alt="">
+                            <img src="../assets/cheeseburger.jpg" alt="">
                             <label for="Cheeseburger" class="MenuListIcons">Cheese-burger</label>
                             <label for="price">₱26.00</label>
                         </div>
@@ -160,7 +156,7 @@
                     <div class="MenuList">
                         <input type="radio" name="menuName" id="Friednoodles" value="Friednoodles">
                         <div class="radioTile">
-                            <img src="../assets/1.jpg" alt="">
+                            <img src="../assets/friednoodles.jpg" alt="">
                             <label for="Friednoodles" class="MenuListIcons">Fried noodles</label>
                             <label for="price">₱40.00</label>
                         </div>
@@ -206,7 +202,8 @@
             
         </div>
     </section>
-
+    <?php include "../pages/footer.php"; ?>
+    </div>
     <script>
         function clearFrom(){
             document.getElementById('orderForm').reset();

@@ -9,22 +9,9 @@
     --fonts-style1: 'Poppins';
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--fonts-style1);
-    background-color: var(--main-color);
-    max-height: 100vh;
-    color: white;
-}
-
 th {
-    background-color: var(--highlight-color4);
+    background: #3D5300;
+    color: white;
     padding: 0 10px;
 }
 
@@ -43,8 +30,8 @@ th {
 }
 
 table {
-    border-radius: 10px; 
     border-collapse: collapse;
+    color: black;
 }
 
 td {
@@ -52,16 +39,16 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: var(--highlight-color2);
+    background: #FFE31A;
     color: black;
 }
 
 .showOrders h2 {
-    color: var(--highlight-color2);
     left: 50%;
     top: 50px;
     transform: translate(-50%, -50%);
     position: absolute;
+    color: black;
 }
 .controlPanel {
     position: relative;
@@ -88,7 +75,7 @@ tr:nth-child(even) {
     border: 1px solid;
     padding: 5px 15px;
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .controlPanel a:focus {

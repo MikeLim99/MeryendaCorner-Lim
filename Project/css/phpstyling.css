@@ -9,17 +9,6 @@
     --fonts-style1: 'Poppins';
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--main-color);
-    font-family: var(--fonts-style1);
-}
 
 section{
     height: 80vh;
@@ -34,8 +23,9 @@ section{
     padding: 50px;
     color: black;
     flex-direction: column;
-    background-color: var(--highlight-color2);
+    background: #FFE31A ;
     border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .orderSummary h2 {
@@ -45,9 +35,32 @@ section{
 
 td {
     padding: 10px 15px;
-    border: 2px solid var(--highlight-color4);
+    border: 2px solid black;
+}
+
+tr:nth-child(even) {
+    background: #FFFBE6;
 }
 
 tr:nth-child(odd) {
-    background-color: var(--highlight-color3);
+    background: #3D5300;
+    color: white;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+button {
+    height: 40px;
+    width: 120px;
+    background-color: #3D5300;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
 }

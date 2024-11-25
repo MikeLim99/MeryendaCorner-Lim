@@ -17,33 +17,36 @@
 
 body {
     font-family: var(--fonts-style1);
-    background-image: url(../assets/burger.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    
 }
 
-section {
-    height: 80vh;
-    width: 100vw;
-
+.searchSomething {
+    height: 100vh;
+    width: 100%;
 }
+
 
 .inputform {
+    height: 175px;
+    width: 300px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFE31A;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+    color: black;
+}
+.inputform h2 {
+    background: black ;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px 0;
     display: flex;
     justify-content: center;
-}
-
-.inputform form {
-    height: 200px;
-    width: 500px;
-    position: relative;
-    background: rgba(255, 255, 255, 0.19);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4.4px);
-    -webkit-backdrop-filter: blur(4.4px);
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    font-size: 20px;
+    color: #FFE31A;
 }
 
 .inputform form input {
@@ -51,42 +54,89 @@ section {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 2px solid black;
     outline: none;
     background-color: transparent;
     height: 30px;
-    width: 25rem;
+    width: 10rem;
     font-size: 1.5rem;
-    border-radius: 10px;
-    border-color: var(--highlight-color4);
 }
-
-.inputform form button {
+.inputform form input::placeholder {
+    font-size: 15px;
     position: absolute;
-    bottom: 20px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    outline: none;
-    height: 30px;
-    width: 100px;
-    border-radius: 10px;
-    outline: none;
+}
+.inputform form button {
+    position: absolute;
+    bottom: 15px;
+    left: 90px;
     font-family: var(--fonts-style1);
-    background-color: var(--highlight-color3);
+    background: #3D5300;
     color: white;
-    transition: 300ms ease;
+    height: 40px;
+    width: 120px;
+    background-color: #3D5300;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: all .3s ease;
 }
 
 .inputform form button:hover {
-    box-shadow: 0 0 20px var(--highlight-color3),
-                0 0 10px var(--highlight-color3),
-                0 0 15px white,
-                0 0 10px white;
+    transform: scale(1.1);
 }
 
-.inputform form h2 {
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%);
+
+
+.content {
     position: absolute;
-    color: white;
+    top: 50%;
+}
+
+th {
+    background-color: #FFE31A;
+    text-align: left;
+    padding: 0 10px;
+}
+
+tr {
+    background-color: white;
+    height: 50px;
+    font-size: 1.2rem;
+}
+
+td {
+    padding: 0 10px;
+    width: 100%;
+}
+
+td:last-child {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+td a {
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+td input {
+    border: none;
+    font-size: 1.2rem;
+    width: 200px;
+}
+
+
+td input:disabled {
+    color: black;
+}
+
+
+td a {
+    text-decoration: none;
+    color: black;
 }

@@ -6,16 +6,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/viewOrderstyle.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/table.css">
     <title>View my Order</title>
 </head>
 <body>
 <?php include "../pages/navbar.php"; ?>
-    <section>
+    <div class="searchSomething">
         <div class="inputform">
             <form action="" method="post">
                 <h2>Check my Order</h2>
-                <input type="text" name="orderId" id="orderId">
+                <input type="text" name="orderId" id="orderId" placeholder="Order number">
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -26,7 +25,6 @@
             </table>
         </div>
         <script src="../js/actionBtn.js"></script>
-    </section>
-    
+    </div>
 </body>
 </html>

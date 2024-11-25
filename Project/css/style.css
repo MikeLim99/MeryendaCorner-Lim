@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 :root {
     --main-color: rgba(38, 38, 38, 1);
     --highlight-color1: rgba(0, 0, 0, 1);
     --highlight-color2: rgba(255, 195, 0, 1);
     --highlight-color3: rgba(121, 163, 61);
     --highlight-color4: rgb(218, 72, 92);
-    --fonts-style1: 'Poppins';
+    --fonts-style1: 'Poppins', sans-serif;
+    --font-style-cursive: "Imperial Script", cursive;
 }
 
 * {
@@ -14,51 +15,46 @@
     margin: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    font-family: var(--fonts-style1);
 }
 
 body {
-    background-color: var(--main-color);
-    font-family: var(--fonts-style1);
-    display: flex;
-    flex-direction: column;
+    background-color: #FFFBE6;
 }
+
+
 
 /* Navigation bar styling! */
 
+.sidebar {
+    display: none;
+}
+
 nav {
-    background-color: var(--highlight-color1);
-    height: 110px;
+    background: #FFE31A;
     width: 100%;
+    position: absolute;
+    z-index: 100;
+    overflow: hidden;
 }
 
 .logo {
-    background-color: var(--highlight-color2);
-    height: 200px;
-    width: 200px;
     position: absolute;
-    left: 0;
-    right: 0;
-    margin-inline: auto;
-    top: 30px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    box-shadow: 0 0 0 15px black;
-    z-index: 2;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 101;
 }
 
-.logo p {
-    text-align: center;
-    margin: 5px 5px;
-    font-weight: 700;
-    border-bottom: 3px solid black;
+.logo img {
+    width: 20vmin;
 }
+
 
 nav .nav-left {
     width: 50%;
     height: 110px;
-    float: left;
+    position: absolute;
 }
 
 .nav-left ul {
@@ -73,7 +69,9 @@ nav .nav-left {
 
 .nav-left li a {
     text-decoration: none;
-    color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 nav .nav-right {
@@ -94,50 +92,57 @@ nav .nav-right {
 
 .nav-right li a {
     text-decoration: none;
-    color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-nav li a:hover {
-    color: var(--highlight-color3);
-    text-shadow: 0 0 15px var(--highlight-color3);
+nav a:hover {
+    border-bottom: 2px solid #3D5300;
 }
 
 /* Main section styling  */
 
-
-
-.main-section img {
+#showcase {
     height: 100vh;
     width: 100%;
     z-index: 0;
+    overflow: hidden;
 }
 
-.cover{
-    z-index: 1;
-    height: 450px;
+.main-section {
+    height: 100vh;
     width: 100%;
-    position: absolute;
-    background-color: var(--highlight-color2);
-    top: 40%;
-    opacity: .2;
+    display: flex;
+    animation: slide 16s infinite;
+}
+.main-section img {
+    height: 100%;
+    width: 100%;
+    flex: 1 0 100%;
+    object-fit: cover;
+}
+.socIcons{
+    left: 0;
+    bottom: 50px;
+    position: relative;
+    color: black;
+    background: black;
+    height: 50px;
+    width: 200px;
+    border-top-right-radius: 20px;
 }
 
-.cover2 {
-    height: 400px;
-    width: 100%;
-    position: absolute;
-    top: 40%;
+.socIcons ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 4;
+    height: 100%;
+    gap: 30px;
+    list-style: none;
 }
-
-.cover2 span {
-    color: white;
-    font-size: 50px;
-    text-align: center;
-    width: 50%;
+.socIcons li {
+    font-size: 1.5rem;
 }
 
 .scrollBtn {
@@ -156,25 +161,27 @@ nav li a:hover {
 #Menu-section {
     min-height: 70vh;
     width: 100%;
+    background: black;
+    padding-bottom: 50px;
 }
 
 /* Card styling */
 .card {
     height: 400px;
     width: 300px;
-    background-color: white;
+    background-color: #FFFBE6;
     border-top-left-radius: 10px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin: 20px 50px;
     position: relative;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .productImg {
     height: 125px;
     width: 250px;
-    background-color: var(--highlight-color2);
+    background-color: #FFE31A;
     position: relative;
     top: 30px;
     border-top-right-radius: 50px;
@@ -193,6 +200,7 @@ nav li a:hover {
     height: 100%;
     width: 100%;
     border-radius: 40px;
+    object-fit: cover;
 }
 
 .card .productDesc {
@@ -220,7 +228,7 @@ nav li a:hover {
 .productPrice {
     height: 40px;
     width: 100px;
-    background-color: var(--highlight-color2);
+    background-color: #FFE31A;
     position: absolute;
     bottom: 20px;
     left: 100px;
@@ -231,10 +239,12 @@ nav li a:hover {
 }
 
 #Menu-section h2 {
-    width: fit-content;
-    margin: 20px;
-    color: var(--highlight-color2);
-    border-bottom: solid 3px;
+    font-size: 60px;
+    padding: 2px 20px;
+    margin: 50px 0;
+    border: 2px solid #FFE31A;
+    font-size: 30px;
+    color: #FFE31A;
 }
 
 .central-div{
@@ -246,6 +256,7 @@ nav li a:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 50px;
 }
 
 /* third section / customized order section */
@@ -261,17 +272,22 @@ nav li a:hover {
 }
 
 #customizedOrder h2 {
-    color: var(--highlight-color2);
-    border-bottom: 3px solid;
+    margin: 20px;
+    padding: 0 20px;
+    border: 2px solid black;
+    font-size: 30px;
+    color: black;
+    border-bottom: 2px solid;
 }
 
-form {
+.indexform {
     height: fit-content;
     width: 700px;
     margin: 20px;
     padding: 10px 20px;
     border-radius: 20px;
-    background-color: var(--highlight-color2);
+    background-color: #FFE31A;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
     
 }
 
@@ -299,24 +315,23 @@ form h3 {
     outline: none;
 }
 
-form input:active ~ .userInput,
-form input:focus ~ .userInput,
-form input:valid ~ .userInput{
-    position: relative;
-    top: -45px;
-    color: black;
-    font-size: 12px;
+
+.info .inputfield input:focus~span,
+.info .inputfield input:valid~span {
+    color: red;
+    top: -50px;
+    font-size: smaller;
 }
 
 .inputfield {
     margin: 0 10px;
 }
 
-.inputfield .userInput {
+.info .inputfield span {
     position: relative;
     top: -30px;
     left: 5px;
-    color: rgba(0, 0, 0, 0.623);
+    color: rgba(0, 0, 0, 0.5);
     font-family: var(--fonts-style1);
     pointer-events: none;
     transition: all .3s ease;
@@ -368,13 +383,15 @@ form input:valid ~ .userInput{
 }
 
 .MenuList input:checked + .radioTile {
-    background-color: var(--highlight-color3);
+    background-color: #3D5300;
     box-shadow: 0 0 20px white;
+    color: white;
 }
 
 .MenuList input:hover + .radioTile {
     box-shadow: 0 0 20px white;
-    background-color: rgba(255, 255, 255, 0.24);
+    background-color: #3D5300;
+    color: white;
 }
 
 
@@ -401,12 +418,15 @@ form input:valid ~ .userInput{
 
 
 .checkData {
-    border-radius: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
     width: 120px;
     height: 40px;
     background-color: var(--main-color);
     position: absolute;
     left: 0;
+    
 }
 
 #orderForm .btns a {
@@ -418,18 +438,230 @@ form input:valid ~ .userInput{
     margin: 0 20px;
     font-family: var(--fonts-style1);
     color: white;
+    transition: all .3s ease;
 }
 
 #orderForm .btns .submitBtn {
     height: 40px;
     width: 120px;
-    background-color: var(--highlight-color3);
-    border-radius: 20px;
+    background-color: #3D5300;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+#orderForm .btns button:hover {
+    transform: scale(1.1);
 }
 
 #orderForm .btns .clearBtn {
     height: 40px;
     width: 120px;
     background-color: var(--highlight-color4);
-    border-radius: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.btns .backBtn {
+    height: 40px;
+    width: 120px;
+    background-color: var(--highlight-color4);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    40% { transform: translateX(0); }
+    50% { transform: translateX(-100%); }
+    90% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+/* footer */
+
+.footer {
+    margin-top: 40px;
+    height: 150px;
+    width: 100%;
+    background: #FFE31A;
+}
+
+.footer .textbox {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* contacts page */
+
+.contactpage {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url(../assets/contactbackground.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.contactpage .content {
+    max-width: 800px;
+    text-align: center;
+}
+
+.contactpage .content h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 0 5px black;
+}
+
+.contactpage .content p {
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 0 0 5px black;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container .contactInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .contactInfo .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+
+.container .contactInfo .box .icon {
+    min-width: 60px;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.container .contactInfo .box .text {
+    margin-left: 20px;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: 0 0 5px black;
+}
+
+.container .contactInfo .box .text h3 {
+    font-weight: 500;
+    color: #FFE31A;
+}
+
+.contactForm {
+    width: 40%;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.contactForm h2 {
+    font-size: 30px;
+    color: black;
+    font-weight: 500;
+}
+
+.contactForm .inputbox {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.contactForm .inputbox input, 
+.contactForm .inputbox textarea{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    resize: none;
+}
+
+.contactForm .inputbox input[type="submit"] {
+    height: 40px;
+    width: 120px;
+    background-color: #3D5300;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #fff;
+}
+
+@media (max-width: 991px) {
+    .contactpage {
+        padding: 50px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container .contactInfo {
+        margin-bottom: 40px;
+    }
+    .container .contactInfo, .contactForm {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .orderForm .info {
+        flex-direction: column;
+    }
+    .orderForm .inputfield {
+        flex-direction: column;
+    }
+    .inputfield span {
+        display: block;
+    }
+
+    .inputfield input {
+        width: 100%;
+    }
+    .indexform .btns .clearBtn {
+        display: none;
+    }
+    .navcontainer ul {
+        display: none;
+    }
+    .sidebar {
+        position: absolute;
+        display: flex;
+        right: 30px;
+        font-size: 40px;
+        top: 25px;
+    }
+
+    .logo{
+        position: absolute;
+        left: 50px;
+        top: 15px;
+    }
 }
