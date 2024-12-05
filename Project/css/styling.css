@@ -47,9 +47,7 @@ section {
 
 .logincontainer .login {
     text-align: center;
-    background: -webkit-linear-gradient(150deg, rgba(255,226,28,1) 0%, rgba(255,215,27,1) 16%, rgba(255,197,25,1) 45%, rgba(255,150,19,1) 67%, rgba(255,83,11,1) 90%, rgba(255,1,1,1) 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #FFE31A;
 }
 
 .registercontainer {
@@ -67,9 +65,7 @@ section {
 
 .registercontainer .login {
     text-align: center;
-    background: -webkit-linear-gradient(150deg, rgba(255,226,28,1) 0%, rgba(255,215,27,1) 16%, rgba(255,197,25,1) 45%, rgba(255,150,19,1) 67%, rgba(255,83,11,1) 90%, rgba(255,1,1,1) 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #FFE31A;
 }
 
 
@@ -112,12 +108,11 @@ button {
     width: 100%;
     border-radius: 10px;
     border: none;
-    background: rgb(255,226,28);
-    background: linear-gradient(150deg, rgba(255,226,28,1) 0%, rgba(255,215,27,1) 16%, rgba(255,197,25,1) 45%, rgba(255,150,19,1) 67%, rgba(255,83,11,1) 90%, rgba(255,1,1,1) 100%);
+    background: #FFE31A;
     font-family: "Poppins";
     font-size: 18px;
     transition: .05s ease;
-    color: white;
+    color: black;
 }
 
 button:active {

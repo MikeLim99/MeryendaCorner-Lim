@@ -33,72 +33,41 @@ body {
 nav {
     background: #FFE31A;
     width: 100%;
-    position: absolute;
-    z-index: 100;
-    overflow: hidden;
-}
-
-.logo {
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 101;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
 }
 
 .logo img {
-    width: 20vmin;
+    width: 100px;
 }
 
-
-nav .nav-left {
-    width: 50%;
-    height: 110px;
-    position: absolute;
-}
-
-.nav-left ul {
+.navcontainer ul {
+    height: 100%;
+    align-items: center;
     display: flex;
     list-style: none;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    font-size: 2.5vmin;
-    height: 105px;
 }
 
-.nav-left li a {
+.navcontainer li a {
     text-decoration: none;
     color: black;
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 17px;
+    padding: 5px 15px;
+    transition: .3s ease;
+    border-radius: 10px;
 }
 
-nav .nav-right {
-    width: 50%;
-    height: 110px;
-    float: right;
+.navcontainer li {
+    margin: 0 20px;
 }
 
-.nav-right ul {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    height: 105px;
-    font-size: 2.5vmin;
-}
 
-.nav-right li a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-nav a:hover {
-    border-bottom: 2px solid #3D5300;
+.navcontainer li a:hover,
+.navcontainer li a:active {
+    background: black;
+    color: #FFE31A;
 }
 
 /* Main section styling  */
@@ -227,12 +196,13 @@ nav a:hover {
 
 .productPrice {
     height: 40px;
-    width: 100px;
-    background-color: #FFE31A;
+    width: 90px;
+    background-color: #FFFBE6;
     position: absolute;
-    bottom: 20px;
-    left: 100px;
-    border-radius: 50px;
+    top: 7.5rem;
+    left: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -287,8 +257,6 @@ nav a:hover {
     padding: 10px 20px;
     border-radius: 20px;
     background-color: #FFE31A;
-    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
-    
 }
 
 form h3 {
@@ -315,10 +283,15 @@ form h3 {
     outline: none;
 }
 
+.info .inputfield input:user-invalid~span {
+    top: -50px;
+    font-size: smaller;
+    color: red;
+}
 
 .info .inputfield input:focus~span,
 .info .inputfield input:valid~span {
-    color: red;
+    color: green;
     top: -50px;
     font-size: smaller;
 }
@@ -629,6 +602,48 @@ form h3 {
     .container .contactInfo, .contactForm {
         width: 100%;
     }
+    .navcontainer {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #FFE31A;
+        transition: .5s;
+        height: 0;
+        overflow: hidden;
+        z-index: 101;
+    }
+
+    .navcontainer.active {
+        height: 450px;
+    }
+
+    .navcontainer ul {
+        display: block;
+        width: fit-content;
+        margin: 80px auto;
+        text-align: center;
+        transition: .3s;
+        opacity: 0;
+    }
+
+    .navcontainer.active ul {
+        opacity: 1;
+    }
+
+    .navcontainer ul li{
+        margin-bottom: 25px;
+    }
+
+    .sidebar {
+        position: absolute;
+        display: flex;
+        right: 30px;
+        font-size: 40px;
+        top: 25px;
+    }
+    
 }
 
 @media (max-width: 768px) {
@@ -648,20 +663,12 @@ form h3 {
     .indexform .btns .clearBtn {
         display: none;
     }
-    .navcontainer ul {
-        display: none;
-    }
-    .sidebar {
-        position: absolute;
-        display: flex;
-        right: 30px;
-        font-size: 40px;
-        top: 25px;
-    }
+    
+    
 
     .logo{
         position: absolute;
-        left: 50px;
-        top: 15px;
+        left: 20px;
+        top: 0px;
     }
 }
