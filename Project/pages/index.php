@@ -121,7 +121,7 @@
                         <span>Email :</span>
                     </div>
                     <div class="inputfield">
-                        <input type="tel" name="contactNumber" id="contactNumber" required>
+                        <input type="text" name="contactNumber" id="contactNumber" pattern="[9]{1}[0-9]{9}" required>
                         <span>Contact number :</span>
                     </div>
                 </div>

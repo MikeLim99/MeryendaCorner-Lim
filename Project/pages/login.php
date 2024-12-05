@@ -9,6 +9,7 @@
 </head>
 <body>
     <section>
+    <?php include "../includes/session.php"; ?>
     <div class="container">
         <!-- login container -->
         <div class="3dholder">

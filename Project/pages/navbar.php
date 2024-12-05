@@ -1,21 +1,16 @@
+<?php include "../includes/session.php"; ?>
+<nav>
 <div class="logo">
     <img src="../assets/Designer-removebg-preview.png" alt="">
 </div>
-<nav>
     <div class="navcontainer">
-        <div class="nav-left">
             <ul>
                 <li><a href="../pages/index.php">Home</a></li>
                 <li><a href="../pages/location.php">Locations</a></li>
                 <li><a href="../pages/index.php#Menu-section">Menu</a></li>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <ul>
                 <li><a href="../pages/contactus.php">Contact us</a></li>
                 <li><a href="#">Join Our Team</a></li>
                 <?php
-                session_start();
                 if(isset($_SESSION['username'])){
                     echo '<li><a href="../users/logout.php">Logout</a></li>';
                 }else {
@@ -23,7 +18,7 @@
                 }
                 ?>
             </ul>
-        </div>
+
     </div>
     <div class="sidebar">
         <div class="navIcon">
@@ -31,4 +26,12 @@
         </div>
     </div>
 </nav>
+
+<script>
+    hamburger = document.querySelector(".sidebar");
+    hamburger.onclick = function (){
+        navBar = document.querySelector(".navcontainer");
+        navBar.classList.toggle("active");
+    }
+</script>
 
